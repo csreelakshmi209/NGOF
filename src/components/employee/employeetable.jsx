@@ -15,8 +15,8 @@ class EmployeeTable extends React.Component {
               <th>Email</th>
               <th>Phone</th>
               <th>Username</th>
-              {this.props.login.loggedIn &&
-                this.props.login.role == "admin" && <th>Actions</th>}
+              {/* {this.props.login.loggedIn &&
+                this.props.login.role == "admin" && <th>Actions</th>} */}
             </tr>
           </thead>
           <tbody>
@@ -27,7 +27,7 @@ class EmployeeTable extends React.Component {
                 <td>{s.email}</td>
                 <td>{s.phone}</td>
                 <td>{s.username}</td>
-                {this.props.login.loggedIn && this.props.login.role == "admin" && (
+                {/* {this.props.login.loggedIn && this.props.login.role == "admin" && ( */}
                 <td>
                 <Link 
                     to={`/employee/get/address/${s.address.addressId}`}
@@ -45,7 +45,7 @@ class EmployeeTable extends React.Component {
                     Delete
                   </button>
                 </td>
-                )}
+                {/* )} */}
               </tr>
             ))}
           </tbody>

@@ -38,7 +38,7 @@ class Login extends React.Component {
     console.log("handleSuccessfull");
     // Redirect to products page on successfull login
     if (this.props.login.loggedIn) {
-      this.props.history.push("/donor/get");
+      this.props.history.push("/home");
     }
  };
   render() {

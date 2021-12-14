@@ -11,15 +11,15 @@ export const getAllItemsAction = () => async (dispatch) => {
 
 // // Get product by id action
 
-// export const getProductByIdAction = (id) => async (dispatch) => {
-//   const result = await axios.get("https://fakestoreapi.com/products/" + id);
-//   console.log(result);
-//   console.log(result.data);
-//   dispatch({
-//     type: "GET_PRODUCT",
-//     payload: result.data,
-//   });
-// };
+export const getItemByIdAction = (id) => async (dispatch) => {
+  const result = await axios.get("https://fakestoreapi.com/products/" + id);
+  console.log(result);
+  console.log(result.data);
+  dispatch({
+    type: "ITEM",
+    payload: result.data,
+  });
+};
 
 // export const addProductAction = (product) => async (dispatch) => {
 //   const result = await axios.post("https://fakestoreapi.com/products", product);

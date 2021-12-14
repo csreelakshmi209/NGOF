@@ -12,7 +12,7 @@ class Donor extends React.Component {
   componentDidMount() {
     console.log("componentDidMount");
     axios
-      .get(`http://localhost:8080/donor/get`)
+      .get(`http://localhost:8080/donor`)
       .then((res) => {
         console.log(res);
         this.setState({ donors: res.data });

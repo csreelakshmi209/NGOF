@@ -9,12 +9,12 @@ class AddDonor extends React.Component {
             donorPhone:"",
             donorUsername:"",
             donorPassword:"",
-            address:[{
+            address:{
               city:"",
               state:"",
               pin:"",
               landmark:""
-            }],
+            },
         },
         errors:{},
         errMsg:"Invalid input",
@@ -33,7 +33,7 @@ class AddDonor extends React.Component {
          .required(),
          donorUsername: Joi.string().min(3).max(20).required(),
           donorPassword: Joi.string().min(3).required(),
-          city:Joi.string().required(),
+         city:Joi.string().required(),
           state:Joi.string().required(),
           pin:Joi.number().integer().min(111111).max(999999).required(),
           landmark:Joi.string().required(),
@@ -47,7 +47,6 @@ class AddDonor extends React.Component {
     });
     console.log(result);
     // setting error messages to error properties
-    // ex: errors[username] = "username is required";
   
     if (result.error != null)
       for (let item of result.error.details) {
@@ -56,7 +55,6 @@ class AddDonor extends React.Component {
     return Object.keys(errors).length === 0 ? null : errors;
   };
     handleChange=(event) => {
-        //logic to update state object
         //copying state employee object to local variable employee
         const donor={...this.state.donor};
         

@@ -59,12 +59,16 @@ class Donation extends React.Component {
                       <td>{s.donationAmount}</td>
                       <td>{s.donationDate}</td>
                       <td>{s.donationItem}</td>
-                      
+                      <td>{s.itemId}</td>
       
                       <td>
+                      <Link 
+                    to={`/items/donated/${s.itemId}`}
+                    className="btn btn-primary">item info
+                  </Link>
                        <Link 
-                          to={`/donor/get`}
-                          className="btn btn-primary">Donor
+                          to={`/donor/get/${s.donor.donorId}`}
+                          className="btn btn-primary">Donor info
                          </Link>
                         <Link 
                           to={`/donation/update/${s.donationId}`}
