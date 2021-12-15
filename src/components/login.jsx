@@ -26,9 +26,9 @@ class Login extends React.Component {
     },
   };
   handleChange = (event) => {
-    const usr = { ...this.state.user };
-    usr[event.target.name] = event.target.value;
-    this.setState({ user: usr });
+    const user = { ...this.state.user };
+    user[event.target.name] = event.target.value;
+    this.setState({ user: user });
   };
   handleSubmit = (event) => {
     event.preventDefault();
@@ -37,9 +37,10 @@ class Login extends React.Component {
     this.props.loginAction(this.state.user);
     console.log("handleSuccessfull");
     // Redirect to products page on successfull login
-    if (this.props.login.loggedIn) {
-      this.props.history.push("/home");
-    }
+    // if (this.state.login.loggedIn === true) {
+    //   this.props.history.push("/employee/get");
+    // }
+    alert(" logged in succussfully!");
  };
   render() {
     return (

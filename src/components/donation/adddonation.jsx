@@ -18,7 +18,7 @@ class AddDonation extends React.Component {
            donationId: "",
            donationAmount:"",
            donationDate:"",
-            donationItem:""
+           item:""
         },
         errors:{},
         errMsg:"Invalid input",
@@ -68,6 +68,9 @@ class AddDonation extends React.Component {
     handleSubmit = (event) => {
         event.preventDefault();
         console.log("handleSubmit");
+        // const donation:{
+
+        // }
         //when user clicks on submit we have to post request to rest api
 
         this.setState({ errors: this.validate() });

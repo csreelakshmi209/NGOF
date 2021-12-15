@@ -9,17 +9,14 @@ class AddDonor extends React.Component {
             donorPhone:"",
             donorUsername:"",
             donorPassword:"",
-            address:{
               city:"",
               state:"",
               pin:"",
               landmark:""
-            },
         },
         errors:{},
         errMsg:"Invalid input",
     };
-    //validate 2nd step
     //define schema to validate input field values
     schema={
          donorName: Joi.string().min(3).max(20).required(),
@@ -70,13 +67,25 @@ class AddDonor extends React.Component {
     handleSubmit = (event) => {
         event.preventDefault();
         console.log("handleSubmit");
+        const donor={ 
+          "donorName": this.state.donor.donorName,
+          "donorEmail": this.state.donor.donorEmail,
+          "donorPhone": this.state.donor.donorPhone,
+          "donorUsername": this.state.donor.donorUsername,
+          "donorPassword": this.state.donor.donorPassword,
+          "address": {
+              "city": this.state.donor.city,
+              "state": this.state.donor.state,
+              "pin": this.state.donor.pin,
+              "landmark": this.state.donor.landmark}
+          }
         //when user clicks on submit we have to post request to rest api
 
-        this.setState({ errors: this.validate() });
-        console.log(this.state.errors);
-        if (this.state.errors) return;
+        // this.setState({ errors: this.validate() });
+        // console.log(this.state.errors);
+        // if (this.state.errors) return;
         axios
-        .post("http://localhost:8080/donor/add", this.state.donor)
+        .post("http://localhost:8080/donor/add",donor)
         .then((res) => {
         console.log(res.data);
         alert(

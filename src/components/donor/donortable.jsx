@@ -27,7 +27,7 @@ class DonorTable extends React.Component {
                       <td>
                       <Link 
                       to={`/donor/get/address/${s.address.addressId}`}
-                       className="btn btn-primary">More Info
+                       className="btn btn-primary">Address Info
                       </Link>
                         <Link 
                           to={`/donor/update/${s.donorId}`}

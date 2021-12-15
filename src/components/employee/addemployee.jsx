@@ -19,7 +19,6 @@ class AddEmployee extends React.Component {
     errors: {},
     errMsg: "Invalid input",
   };
-  //validate 2nd step
   //define schema to validate input field values
   schema = {
     employeeName: Joi.string().min(3).max(20).required(),

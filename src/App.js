@@ -9,6 +9,7 @@ import {
 import Home from "./components/home";
 import Login from "./components/login";
 import Register from "./components/register";
+import Admin from "./components/admin/admin";
 import Employee from "./components/employee/employee";
 import AddEmployee from "./components/employee/addemployee";
 import UpdateEmployee from "./components/employee/updateemployee";
@@ -19,6 +20,7 @@ import Donation from "./components/donation/donation";
 import DonationItem from "./components/donation/donationitem";
 import AddDonation from "./components/donation/adddonation";
 import DonorAddress from "./components/donor/donoraddress";
+import UpdateDonor from "./components/donor/updatedonor";
 import DonationDonor from "./components/donation/donationdonor";
 import Counter from "./components/counter";
 //import Items from "./components/items";
@@ -32,29 +34,36 @@ function App() {
         <Switch>
           <Route path="/home" component={Home} />
           <Route path="/login" component={Login} />
+          <Route path="/admin" component={Admin} />
           <Route path="/register" component={Register} />
-          <Route
-            path="/employee/update/:employeeId"
-            component={UpdateEmployee}
-          />
-          <Route path="/employee/add" component={AddEmployee} />
          
           <Route
-            path="/donor/get/address/:addressId"
-            component={DonorAddress}
+            path="/donor/update/:donorId"
+            component={UpdateDonor}
           />
-         
           <Route
             path="/employee/get/address/:addressId"
             component={EmployeeAddress}
           />
+          <Route path="/employee/add" component={AddEmployee} />
+          <Route path="/donor/add" component={AddDonor} />
+          <Route
+            path="/donor/get/address/:addressId"
+            component={DonorAddress}
+          /> 
+          <Route path="/employee/get" component={Employee} />
+          <Route path="/donor" component={Donor} />
+          
+         
+          
+           <Route
+            path="/employee/update/:employeeId"
+            component={UpdateEmployee}
+          />  
           <Route
             path="/donor/get/:donorId"
             component={DonationDonor}
           />
-          <Route path="/employee/get" component={Employee} />
-          <Route path="/donor/add" component={AddDonor} />
-          <Route path="/donor" component={Donor} />
           <Route path="/donation/add" component={AddDonation} />
           <Route path="/donation/get" component={Donation} />
           <Route
