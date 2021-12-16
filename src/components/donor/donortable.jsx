@@ -34,12 +34,13 @@ class DonorTable extends React.Component {
                        className="btn btn-primary">Address Info
                       </Link>
                       </td>
-                       {this.props.login.loggedIn && this.props.login.role === "admin" && this.props.login.role === "employee" && (
-                        <td>
-                        <Link 
+                      <Link 
                           to={`/donor/update/${s.donorId}`}
                           className="btn btn-primary">Update
                         </Link>
+                       {this.props.login.loggedIn && this.props.login.role === "admin" && this.props.login.role === "employee" && (
+                        <td>
+                        
                         
                         <button
                           className="btn btn-danger"
