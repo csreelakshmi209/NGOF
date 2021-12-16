@@ -3,44 +3,38 @@ import { Link,NavLink } from "react-router-dom";
 import axios from "axios";
 class DonationItem extends React.Component {
   state = {
-    donationItem: {
+    item: {
 
     },
   };
   componentDidMount() {
     console.log("componentDidMount");
     axios
-      .get(`http://localhost:8080/items/donated/${this.props.match.params.itemId}`)
+      .get(`http://localhost:8080/items/donated/id/${this.props.match.params.itemId}`)
       .then((res) => {
         console.log(res);
-        this.setState({ donationItem: res.data });
+        this.setState({ item: res.data });
       })
       .catch((err) => console.log(err));
   }
     render() { 
-        const {donationItem} =this.state;
+        const {item} =this.state;
         return (
         <div>
             <table className="table">
           <thead>
             <tr>
               <th>itemId</th>
-              <th>itemType</th>
+              <th>donationType</th>
               <th>item_description</th>
-             
-              
             </tr>
           </thead>
           <tbody>
             
-              <tr key={donationItem.itemId}>
-                <td>{donationItem.itemId}</td>
-                <td>{donationItem.itemType}</td>
-                <td>{donationItem.itemDescription}</td>
-               
-                <td>
-                
-                </td>
+              <tr key={item.itemId}>
+                <td>{item.itemId}</td>
+                <td>{item.donationType}</td>
+                <td>{item.itemDescription}</td>
               </tr>
             
           </tbody>
