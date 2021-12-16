@@ -36,7 +36,6 @@ function App() {
           <Route path="/login" component={Login} />
           <Route path="/admin" component={Admin} />
           <Route path="/register" component={Register} />
-         
           <Route
             path="/donor/update/:donorId"
             component={UpdateDonor}
@@ -46,16 +45,14 @@ function App() {
             component={EmployeeAddress}
           />
           <Route path="/employee/add" component={AddEmployee} />
+          <Route path="/donor" component={Donor} />
           <Route path="/donor/add" component={AddDonor} />
           <Route
             path="/donor/get/address/:addressId"
             component={DonorAddress}
           /> 
           <Route path="/employee/get" component={Employee} />
-          <Route path="/donor" component={Donor} />
-          
-         
-          
+        
            <Route
             path="/employee/update/:employeeId"
             component={UpdateEmployee}

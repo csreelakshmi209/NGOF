@@ -4,16 +4,12 @@ import Box from '@mui/material/Box';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-
-import AccountBoxRoundedIcon from '@mui/icons-material/AccountBoxRounded';
 import SvgIcon from '@mui/material/SvgIcon';
-import MenuBookIcon from '@mui/icons-material/MenuBook';
 import HowToRegIcon from '@mui/icons-material/HowToReg';
-import LoginIcon from '@mui/icons-material/Login';
 import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { NavLink } from "react-router-dom";
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 //import DonationItems from './donationitem';
 function HomeIcon(props) {
   return (
@@ -50,7 +46,7 @@ const Nav = () => {
           <HomeIcon />
           <Button color="inherit" component={NavLink} to="/items">Items</Button>
 
-          {/* {login.loggedIn ? ( */}
+          {login.loggedIn ? (
               <Button to="/logout" component={NavLink} color="inherit">
                 Logout
               </Button>
@@ -58,8 +54,7 @@ const Nav = () => {
               <Button color="inherit" component={NavLink} to="/login">
                 Login
               </Button>
-              
-            {/* )} */}
+             )} 
         
           <Button color="inherit" component={NavLink} to="/register">Register</Button>
           <HowToRegIcon />

@@ -36,7 +36,7 @@ class DonorTable extends React.Component {
                         
                         <button
                           className="btn btn-danger"
-                          onClick={() => this.handleDelete(s.donorId)}
+                          onClick={() => handleDelete(s.donorId)}
                         >
                           Delete
                         </button>

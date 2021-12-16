@@ -4,6 +4,7 @@ import React, { Component } from "react";
 
 import { connect } from "react-redux";
 import { loginAction } from "../actions/loginaction";
+import { useHistory } from "react-router-dom";
 
 import {
   TextField,
@@ -36,12 +37,15 @@ class Login extends React.Component {
     // dispatch login action
     this.props.loginAction(this.state.user);
     console.log("handleSuccessfull");
+    alert(" logged in successfully!");
     // Redirect to products page on successfull login
-    // if (this.state.login.loggedIn === true) {
-    //   this.props.history.push("/employee/get");
-    // }
-    alert(" logged in succussfully!");
- };
+    if (this.props.login.loggedIn) {
+      this.props.history.push("/employee/get");
+      console.log("redirect Successfull");
+    }
+
+   
+  };
   render() {
     return (
       <div
