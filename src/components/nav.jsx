@@ -25,9 +25,7 @@ const Nav = () => {
       <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-        <Router>
-        
-            
+        <Router>    
         <Typography 
           variant="h6" 
           to="/home" color="inherit" component={NavLink}

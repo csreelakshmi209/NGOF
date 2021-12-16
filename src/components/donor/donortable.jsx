@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link,NavLink } from "react-router-dom";
-
+import { connect } from "react-redux";
 class DonorTable extends React.Component {
     render() { 
         const {donors,handleDelete} =this.props;
@@ -13,6 +13,9 @@ class DonorTable extends React.Component {
                     <th>DonorEmail</th>
                     <th>DonorPhone</th>
                     <th>DonorUsername</th>
+                    {this.props.login.loggedIn &&
+                this.props.login.role === "admin"  &&
+                this.props.login.role === "employee" && <th>Actions</th>}
                     
                   </tr>
                 </thead>
@@ -24,11 +27,15 @@ class DonorTable extends React.Component {
                       <td>{s.donorEmail}</td>
                       <td>{s.donorPhone}</td>
                       <td>{s.donorUsername}</td>
+                     
                       <td>
                       <Link 
                       to={`/donor/get/address/${s.address.addressId}`}
                        className="btn btn-primary">Address Info
                       </Link>
+                      </td>
+                       {this.props.login.loggedIn && this.props.login.role === "admin" && this.props.login.role === "employee" && (
+                        <td>
                         <Link 
                           to={`/donor/update/${s.donorId}`}
                           className="btn btn-primary">Update
@@ -41,6 +48,7 @@ class DonorTable extends React.Component {
                           Delete
                         </button>
                       </td>
+                       )}
                     </tr>
                   ))}
                 </tbody>
@@ -48,5 +56,10 @@ class DonorTable extends React.Component {
         </div>;
     }
 }
- 
-export default DonorTable;
+ // funtion to get updates from store
+const mapStateToProps = (state) => {
+  return {
+    login: state.login,
+  };
+};
+export default connect(mapStateToProps)(DonorTable);

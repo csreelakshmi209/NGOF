@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from "axios";
 import { Link } from "react-router-dom";
 import DonorTable from './donortable';
-import DonorAddress from './donoraddress';
+import { connect } from "react-redux";
 class Donor extends React.Component {
     state = {
         donors: [],
@@ -40,9 +40,11 @@ class Donor extends React.Component {
        return (
             <div>   <h1>Donor Details</h1>
             <div className="w-75 mx-auto" >
+            {/* {this.props.login.loggedIn && this.props.login.role === "admin" && this.props.login.role ==="employee" && ( */}
               <Link to="/donor/add" className="btn btn-info float-end">
                 Add
               </Link>
+            {/* )} */}
               <DonorTable donors={this.state.donors} handleDelete={this.handleDelete}/>
              
             </div>
@@ -51,5 +53,9 @@ class Donor extends React.Component {
         
     }
 }
- 
-export default Donor;
+const mapStateToProps = (state) => {
+  return {
+    login: state.login,
+  };
+};
+export default connect(mapStateToProps)(Donor);

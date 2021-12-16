@@ -43,11 +43,11 @@ class Employee extends React.Component {
   render() {
     return (
       <div className="w-75 mx-auto" >
-        {this.props.login.loggedIn && this.props.login.role === "admin" && (
+        {/* {this.props.login.loggedIn && this.props.login.role === "admin" && ( */}
         <Link to="/employee/add" className="btn btn-info float-end">
           Add
         </Link>
-        )}
+        {/* )} */}
       <EmployeeTable employees={this.state.employees} handleDelete={this.handleDelete}/>
       
       </div>

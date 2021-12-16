@@ -28,26 +28,29 @@ class EmployeeTable extends React.Component {
                 <td>{s.phone}</td>
                 <td>{s.username}</td>
                 <td>{s.passoword}</td>
-                {this.props.login.loggedIn && this.props.login.role === "admin" && (
+               
                 <td>
                 <Link 
                     to={`/employee/get/address/${s.address.addressId}`}
                     className="btn btn-primary">Address Info
                   </Link>
+                </td>
+                
+                  {this.props.login.loggedIn && this.props.login.role === "admin" && (
+                    <td>
                   <Link 
                     to={`/employee/update/${s.employeeId}`}
                     className="btn btn-primary">Update
                   </Link>
-                 
-                  
                   <button
                     className="btn btn-danger"
                     onClick={() => handleDelete(s.employeeId)}
                   >
                     Delete
                   </button>
+                  
                 </td>
-                )}
+                 )} 
               </tr>
             ))}
           </tbody>

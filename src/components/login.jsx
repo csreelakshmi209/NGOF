@@ -17,6 +17,7 @@ import {
   Button,
   Typography,
 } from "@mui/material";
+import Joi from "joi-browser";
 
 class Login extends React.Component {
   state = {
@@ -25,6 +26,30 @@ class Login extends React.Component {
       password: "",
       role: "",
     },
+    errors: {},
+  errMsg: "",
+  };
+  
+
+  schema = {
+    username: Joi.string().min(3).max(20).required(),
+    password: Joi.string().min(3).required(),
+    city: Joi.string().required(),
+    state: Joi.string().required(),
+  };
+  validate = () => {
+    const errors = {};
+    const result = Joi.validate(this.state.login, this.schema, {
+      abortEarly: false,
+    });
+    console.log(result);
+    // setting error messages to error properties
+
+    if (result.error != null)
+      for (let item of result.error.details) {
+        errors[item.path[0]] = item.message;
+      }
+    return Object.keys(errors).length === 0 ? null : errors;
   };
   handleChange = (event) => {
     const user = { ...this.state.user };
@@ -40,13 +65,13 @@ class Login extends React.Component {
     alert(" logged in successfully!");
     // Redirect to products page on successfull login
     if (this.props.login.loggedIn) {
-      this.props.history.push("/employee/get");
-      console.log("redirect Successfull");
-    }
-
+        this.props.history.push("/employee/get");
+      console.log("redirect Successfull");}
    
   };
+ 
   render() {
+    const { errors, errMsg } = this.state;
     return (
       <div
         style={{
@@ -57,6 +82,10 @@ class Login extends React.Component {
         }}
       >
         <Typography variant="h5">Login Form</Typography>
+        {errMsg && (
+          <div className="alert alert-danger" role="alert">
+            {errMsg}
+            </div>)}
         <Paper elevation={3}>
           <form
             onSubmit={this.handleSubmit}
@@ -74,6 +103,7 @@ class Login extends React.Component {
               value={this.state.username}
               name="username"
               onChange={this.handleChange}
+              
             />
             <TextField
               id="filled-basic"
