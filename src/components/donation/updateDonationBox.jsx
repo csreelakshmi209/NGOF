@@ -60,7 +60,6 @@ class UpdateDonationBox extends React.Component {
         //update state object using setstate method
         this.setState({boxes:boxes});
     };
-
     handleSubmit = (event) => {
         event.preventDefault();
         console.log("handleSubmit");

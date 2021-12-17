@@ -9,7 +9,7 @@ import {
 import Home from "./components/home";
 import Login from "./components/login";
 import Register from "./components/register";
-import Admin from "./components/admin/admin";
+import AddAdmin from "./components/admin/addadmin";
 import Employee from "./components/employee/employee";
 import AddEmployee from "./components/employee/addemployee";
 import UpdateEmployee from "./components/employee/updateemployee";
@@ -37,7 +37,7 @@ function App() {
         <Switch>
           <Route path="/home" component={Home} />
           <Route path="/login" component={Login} />
-          <Route path="/admin" component={Admin} />
+          <Route path="/admin/add" component={AddAdmin} />
           <Route path="/register" component={Register} />
           <Route
             path="/donationBox/update/:registrationNumber"
@@ -50,6 +50,10 @@ function App() {
             component={UpdateDonor}
           />
           <Route
+            path="/donor/get/address/:addressId"
+            component={DonorAddress}
+          /> 
+          <Route
             path="/employee/get/address/:addressId"
             component={EmployeeAddress}
           />
@@ -57,10 +61,7 @@ function App() {
          
           <Route path="/donor" component={Donor} />
           <Route path="/donor/add" component={AddDonor} />
-          <Route
-            path="/donor/get/address/:addressId"
-            component={DonorAddress}
-          /> 
+          
           <Route path="/employee/get" component={Employee} />
         
            <Route
