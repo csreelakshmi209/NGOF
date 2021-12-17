@@ -21,12 +21,7 @@ class Employee extends React.Component {
       })
       .catch((err) => console.log(err));
   }
-  componentDidUpdate() {
-    console.log("componentDidUpdate");
-  }
- 
-
-  handleDelete = (employeeId) => { 
+   handleDelete = (employeeId) => { 
     axios
       .delete(`http://localhost:8080/employee/remove/${employeeId}`)
       .then((res) => {

@@ -16,12 +16,15 @@ import UpdateEmployee from "./components/employee/updateemployee";
 import EmployeeAddress from "./components/employee/employeeaddress";
 import Donor from "./components/donor/donor";
 import AddDonor from "./components/donor/adddonor";
+import AddDonationBox from "./components/donation/addDonationBox";
 import Donation from "./components/donation/donation";
 import DonationItem from "./components/donation/donationitem";
 import AddDonation from "./components/donation/adddonation";
 import DonorAddress from "./components/donor/donoraddress";
 import UpdateDonor from "./components/donor/updatedonor";
+import UpdateDonationBox from "./components/donation/updateDonationBox";
 import DonationDonor from "./components/donation/donationdonor";
+import DonationBox from "./components/donation/donationBox";
 import Counter from "./components/counter";
 //import Items from "./components/items";
 //import ItemDetails from "./components/itemdetails";
@@ -37,6 +40,12 @@ function App() {
           <Route path="/admin" component={Admin} />
           <Route path="/register" component={Register} />
           <Route
+            path="/donationBox/update/:registrationNumber"
+            component={UpdateDonationBox}
+          />
+          <Route path="/donationBox/add" component={AddDonationBox} />
+          <Route path="/donationBox" component={DonationBox} />
+          <Route
             path="/donor/update/:donorId"
             component={UpdateDonor}
           />
@@ -45,6 +54,7 @@ function App() {
             component={EmployeeAddress}
           />
           <Route path="/employee/add" component={AddEmployee} />
+         
           <Route path="/donor" component={Donor} />
           <Route path="/donor/add" component={AddDonor} />
           <Route
@@ -67,6 +77,8 @@ function App() {
             path="/items/donated/:itemId"
             component={DonationItem}
           />
+         
+
           {/* <Route path="/items/get" component={Items} /> */}
         
           {/* <Route path="/item/details/:id" component={ItemDetails} /> */}

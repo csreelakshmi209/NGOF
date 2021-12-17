@@ -17,5 +17,4 @@ const initialLoginState = {
         return state;
     }
   };
-  
   export default loginReducer;
