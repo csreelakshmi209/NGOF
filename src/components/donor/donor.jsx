@@ -41,7 +41,7 @@ class Donor extends React.Component {
             <div>   <h1>Donor Details</h1>
             <div className="w-75 mx-auto" >
            
-              <Link to="/donor/add" className="btn btn-info float-end">
+              <Link to="/addDonor" className="btn btn-info float-end">
                 Add
               </Link>
           

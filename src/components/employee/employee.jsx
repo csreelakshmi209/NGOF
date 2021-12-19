@@ -11,16 +11,21 @@ class Employee extends React.Component {
   };
 
   // class component life cycle methods
+  
   componentDidMount() {
     console.log("componentDidMount");
+   
     axios
-      .get(`http://localhost:8080/employee/get`)
+    
+      .get(`http://localhost:8080/employee/get`) 
       .then((res) => {
         console.log(res);
         this.setState({ employees: res.data });
       })
       .catch((err) => console.log(err));
+     
   }
+ 
    handleDelete = (employeeId) => { 
     axios
       .delete(`http://localhost:8080/employee/remove/${employeeId}`)

@@ -59,7 +59,7 @@ const Nav = () => {
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/employee">
+                <NavLink className="nav-link" to="/employee/get">
                   Pages
                   <ArticleIcon />
                 </NavLink>

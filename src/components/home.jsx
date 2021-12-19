@@ -79,7 +79,7 @@ class Home extends React.Component {
                   </pre>
                 </p>
                 {/* <a href="#" class="btn btn-primary"> */}
-                <Link to="/employee" className="btn btn-primary">
+                <Link to="/employee/get" className="btn btn-primary">
                   Employee
                 </Link>
               </div>

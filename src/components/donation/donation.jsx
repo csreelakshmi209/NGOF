@@ -75,13 +75,19 @@ class Donation extends React.Component {
                           className="btn btn-primary">Update
                         </Link>
                         
-                        <button
-                          className="btn btn-danger"
-                          onClick={() => this.handleDelete(s.donationId)}
-                        >
-                          Delete
-                        </button>
+                       
                       </td>
+                      {this.props.login.loggedIn && this.props.login.role === "admin" && (
+                      <td>
+                       
+                           <button
+                           className="btn btn-danger"
+                           onClick={() => this.handleDelete(s.donationId)}
+                         >
+                           Delete
+                         </button>
+                        </td>
+                      )}
                     </tr>
                   ))}
                 </tbody>
@@ -92,5 +98,10 @@ class Donation extends React.Component {
         
     }
 }
- 
-export default Donation;
+// funtion to get updates from store
+const mapStateToProps = (state) => {
+  return {
+    login: state.login,
+  };
+};
+export default connect(mapStateToProps)(Donation);

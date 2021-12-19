@@ -15,8 +15,7 @@ class DonorTable extends React.Component {
                     <th>DonorUsername</th>
                     {this.props.login.loggedIn &&
                 this.props.login.role === "admin"  &&
-                this.props.login.role === "employee" && <th>Actions</th>}
-                    
+                <th>Actions</th>}  
                   </tr>
                 </thead>
                 <tbody>
@@ -33,21 +32,18 @@ class DonorTable extends React.Component {
                       to={`/donor/get/address/${s.address.addressId}`}
                        className="btn btn-primary">Address Info
                       </Link>
-                      </td>
                       <Link 
                           to={`/donor/update/${s.donorId}`}
                           className="btn btn-primary">Update
                         </Link>
-                       {this.props.login.loggedIn && this.props.login.role === "admin" && this.props.login.role === "employee" && (
-                        <td>   
-                        <button
-                          className="btn btn-danger"
-                          onClick={() => handleDelete(s.donorId)}
-                        >
-                          Delete
-                        </button>
-                      </td>
-                       )}
+                      {this.props.login.loggedIn && this.props.login.role != "donor" && (
+                  <button
+                    className="btn btn-danger"
+                    onClick={() => handleDelete(s.donorId)}
+                  > Delete
+                  </button> )} 
+                </td>
+                      
                     </tr>
                   ))}
                 </tbody>
